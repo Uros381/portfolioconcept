@@ -25,7 +25,8 @@ const About: React.FC = () => {
 
   const stats = [
     { icon: Clock, value: '5+', label: 'Godina iskustva' },
-    { icon: Users, value: '100+', label: 'Zadovoljnih klijenata' }, <div className="text-2xl">🚀</div>
+    { icon: Users, value: '100+', label: 'Zadovoljnih klijenata' },
+    <div className="text-2xl">🚀</div>
     { icon: Award, value: '200+', label: 'Završenih projekata' },
     { icon: Palette, value: '∞', label: 'Kreativnih ideja' },
   ];
