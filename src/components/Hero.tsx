@@ -48,26 +48,53 @@ const Hero: React.FC = () => {
             Kreiram vizuelna rešenja koja ostavljaju utisak. 
             Specijalizovan za Adobe Photoshop sa više od 5 godina iskustva.
           </motion.p>
-          <motion.button
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-            whileHover={{ scale: 1.05, y: -5 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={scrollToPortfolio}
-            className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-semibold rounded-full shadow-2xl overflow-hidden transition-all duration-300"
-          >
-            <span className="relative z-10 flex items-center gap-2">
-              Pogledaj radove
-              <motion.div
-                animate={{ y: [0, 5, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                <ArrowDown size={20} />
-              </motion.div>
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </motion.button>
+          <motion.div className="flex flex-col items-center gap-4">
+  {/* Postojeće dugme "Pogledaj radove" */}
+  <motion.button
+    initial={{ opacity: 0, scale: 0.5 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.5, delay: 0.8 }}
+    whileHover={{ scale: 1.05, y: -5 }}
+    whileTap={{ scale: 0.95 }}
+    onClick={scrollToPortfolio}
+    className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-semibold rounded-full shadow-2xl overflow-hidden transition-all duration-300"
+  >
+    <span className="relative z-10 flex items-center gap-2">
+      Pogledaj radove
+      <motion.div
+        animate={{ y: [0, 5, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        <ArrowDown size={20} />
+      </motion.div>
+    </span>
+    <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+  </motion.button>
+
+  {/* Novo dugme "Preuzmi CV" */}
+  <motion.a
+    initial={{ opacity: 0, scale: 0.5 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.5, delay: 1 }}
+    whileHover={{ scale: 1.05, y: -5 }}
+    whileTap={{ scale: 0.95 }}
+    href="LINK_DO_TVOG_CV_FAJLA.pdf" // <-- OVDE ZAMENI LINK
+    download
+    className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-semibold rounded-full shadow-2xl overflow-hidden transition-all duration-300"
+  >
+    <span className="relative z-10 flex items-center gap-2">
+      Preuzmi CV
+      <motion.div
+        animate={{ y: [0, 5, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        <ArrowDown size={20} />
+      </motion.div>
+    </span>
+    <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+  </motion.a>
+</motion.div>
+
         </motion.div>
       </div>
     </section>
