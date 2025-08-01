@@ -59,8 +59,6 @@ const PortfolioPage: React.FC = () => {
                 className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer"
                 onClick={() => openModal(item)}
               >
-                <ArrowLeft size={20} />
-                Nazad na početnu
               </Link>
               <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-6">
                 Svi radovi
