@@ -50,7 +50,7 @@ const Contact: React.FC = () => {
       // Send email using EmailJS
       await emailjs.send(
         'service_13nnsaf', // Ovo ćeš morati da promeniš sa svojim service ID
-        'Uroš', // Ovo ćeš morati da promeniš sa svojim template ID
+        'Emailkontakt', // Ovo ćeš morati da promeniš sa svojim template ID
         templateParams
       );
 
