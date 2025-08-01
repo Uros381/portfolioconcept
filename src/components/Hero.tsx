@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
               ease: "easeInOut" 
             }}
           >
-            Grafički
+            Uroš
           </motion.h1>
           <motion.h2
             initial={{ opacity: 0, x: -50 }}
@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 1, delay: 0.4 }}
             className="text-4xl md:text-6xl font-bold mb-8 text-gray-800 dark:text-white"
           >
-            Dizajner
+            Grafički Dizajner
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
