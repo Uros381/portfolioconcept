@@ -5,17 +5,39 @@ import { ArrowLeft } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import AnimatedBackground from '../components/AnimatedBackground';
 import { portfolioItems } from '../data/portfolioData';
+import ImageModal from '../components/ImageModal';
 
 const PortfolioPage: React.FC = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<{
+    src: string;
+    title: string;
+    category: string;
+  } | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
+  const openModal = (item: typeof portfolioItems[0]) => {
+    setSelectedImage({
+      src: item.image,
+      title: item.title,
+      category: item.category
+    });
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedImage(null), 300);
+  };
+
   return (
-    <div className="relative min-h-screen">
+    <>
+      <div className="relative min-h-screen">
       <AnimatedBackground />
       <motion.div
         initial={{ opacity: 0 }}
@@ -34,7 +56,8 @@ const PortfolioPage: React.FC = () => {
             >
               <Link
                 to="/"
-                className="inline-flex items-center gap-2 text-blue-500 hover:text-blue-400 transition-colors duration-300 mb-8"
+                className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer"
+                onClick={() => openModal(item)}
               >
                 <ArrowLeft size={20} />
                 Nazad na početnu
@@ -75,7 +98,14 @@ const PortfolioPage: React.FC = () => {
           </div>
         </div>
       </motion.div>
-    </div>
+      </div>
+
+      <ImageModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        image={selectedImage}
+      />
+    </>
   );
 };
 

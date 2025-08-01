@@ -1,12 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Instagram, MessageCircle, Mail, Phone } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
   const [inView, setInView] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -26,19 +28,46 @@ const Contact: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    // Initialize EmailJS
+    emailjs.init("YOUR_PUBLIC_KEY"); // Ovo ćeš morati da promeniš sa svojim ključem
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError('');
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // EmailJS template parameters
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: 'urosjebrt@gmail.com'
+      };
+
+      // Send email using EmailJS
+      await emailjs.send(
+        'YOUR_SERVICE_ID', // Ovo ćeš morati da promeniš sa svojim service ID
+        'YOUR_TEMPLATE_ID', // Ovo ćeš morati da promeniš sa svojim template ID
+        templateParams
+      );
+
       setIsSubmitting(false);
       setSubmitted(true);
       setFormData({ name: '', email: '', message: '' });
       
-      // Reset success message after 3 seconds
-      setTimeout(() => setSubmitted(false), 3000);
-    }, 1000);
+      // Reset success message after 5 seconds
+      setTimeout(() => setSubmitted(false), 5000);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setIsSubmitting(false);
+      setError('Greška pri slanju poruke. Molimo pokušajte ponovo.');
+      
+      // Reset error message after 5 seconds
+      setTimeout(() => setError(''), 5000);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -84,6 +113,16 @@ const Contact: React.FC = () => {
                   className="mb-6 p-4 bg-green-100 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg text-green-800 dark:text-green-200"
                 >
                   Poruka je uspešno poslata! Odgovoriću vam uskoro.
+                </motion.div>
+              )}
+
+              {error && (
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6 p-4 bg-red-100 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg text-red-800 dark:text-red-200"
+                >
+                  {error}
                 </motion.div>
               )}
 

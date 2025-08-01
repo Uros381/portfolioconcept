@@ -3,10 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import HomePage from './pages/HomePage';
 import PortfolioPage from './pages/PortfolioPage';
+import EmailSetup from './components/EmailSetup';
 
 function App() {
   return (
     <ThemeProvider>
+      <EmailSetup />
       <Router>
         <div className="dark:bg-gray-900 bg-white transition-colors duration-300">
           <Routes>

@@ -3,9 +3,16 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ExternalLink } from 'lucide-react';
 import { portfolioItems } from '../data/portfolioData';
+import ImageModal from './ImageModal';
 
 const Portfolio: React.FC = () => {
   const [inView, setInView] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<{
+    src: string;
+    title: string;
+    category: string;
+  } | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -27,8 +34,23 @@ const Portfolio: React.FC = () => {
 
   const featuredItems = portfolioItems.slice(0, 6);
 
+  const openModal = (item: typeof portfolioItems[0]) => {
+    setSelectedImage({
+      src: item.image,
+      title: item.title,
+      category: item.category
+    });
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedImage(null), 300);
+  };
+
   return (
-    <section id="portfolio" ref={ref} className="py-20 bg-gray-50 dark:bg-gray-800/50">
+    <>
+      <section id="portfolio" ref={ref} className="py-20 bg-gray-50 dark:bg-gray-800/50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -51,7 +73,8 @@ const Portfolio: React.FC = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-700 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+              className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-700 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer"
+              onClick={() => openModal(item)}
             >
               <div className="aspect-w-4 aspect-h-3 overflow-hidden">
                 <img
@@ -90,7 +113,14 @@ const Portfolio: React.FC = () => {
           </Link>
         </motion.div>
       </div>
-    </section>
+      </section>
+
+      <ImageModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        image={selectedImage}
+      />
+    </>
   );
 };
 
