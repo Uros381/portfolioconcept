@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
           >
             <Palette className="w-8 h-8 text-blue-500" />
             <span className="text-xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-              Uroš Designs
+              Uroš Design
             </span>
           </motion.div>
 
