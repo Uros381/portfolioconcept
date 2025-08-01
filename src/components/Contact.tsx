@@ -30,7 +30,7 @@ const Contact: React.FC = () => {
 
   useEffect(() => {
     // Initialize EmailJS
-    emailjs.init("YOUR_PUBLIC_KEY"); // Ovo ćeš morati da promeniš sa svojim ključem
+    emailjs.init("ZTZ17svVZLI9-Q9T5"); // Ovo ćeš morati da promeniš sa svojim ključem
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
