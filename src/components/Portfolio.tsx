@@ -94,34 +94,24 @@ const Portfolio: React.FC = () => {
         </div>
 
         <motion.div
-  initial={{ opacity: 0, y: 30 }}
-  animate={inView ? { opacity: 1, y: 0 } : {}}
-  transition={{ duration: 0.8, delay: 0.4 }}
-  className="text-center space-y-4"
->
-  {/* Dugme "Vidi još" */}
-  <Link
-    to="/portfolio"
-    className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-500 via-teal-500 to-blue-500 text-white font-semibold rounded-full shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 transition-all duration-300"
-  >
-    Vidi još
-    <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-      <ExternalLink size={20} />
-    </motion.div>
-  </Link>
-
-  {/* Dugme "Preuzmi CV" */}
-  <a
-    href="LINK_DO_TVOG_CV_FAJLA.pdf" // <-- OVDE ZAMENI LINK
-    download
-    className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-500 via-teal-500 to-blue-500 text-white font-semibold rounded-full shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 transition-all duration-300"
-  >
-    Preuzmi CV
-    <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-      <ExternalLink size={20} />
-    </motion.div>
-  </a>
-</motion.div>
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-center"
+        >
+          <Link
+            to="/portfolio"
+            className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-500 via-teal-500 to-blue-500 text-white font-semibold rounded-full shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 transition-all duration-300"
+          >
+            Vidi još
+            <motion.div
+              whileHover={{ x: 5 }}
+              transition={{ duration: 0.2 }}
+            >
+              <ExternalLink size={20} />
+            </motion.div>
+          </Link>
+        </motion.div>
       </div>
       </section>
 
