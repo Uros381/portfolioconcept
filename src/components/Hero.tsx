@@ -78,7 +78,7 @@ const Hero: React.FC = () => {
     transition={{ duration: 0.5, delay: 1 }}
     whileHover={{ scale: 1.05, y: -5 }}
     whileTap={{ scale: 0.95 }}
-    href="https://i.imgur.com/tG5KPHQ.jpeg" // <-- OVDE ZAMENI LINK
+    href="https://drive.google.com/uc?export=download&id=1PXx5a7rR-4dMGcR9Zr6E3Q4YohAltrjt" // <-- OVDE ZAMENI LINK
     download
     className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-semibold rounded-full shadow-2xl overflow-hidden transition-all duration-300"
   >
