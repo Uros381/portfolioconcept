@@ -61,7 +61,7 @@ const Hero: React.FC = () => {
               Pogledaj radove
               <motion.div
                 animate={{ y: [0, 5, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
+                transition={{ duration: 1, repeat: Infinity }}
               >
                 <ArrowDown size={20} />
               </motion.div>
