@@ -6,6 +6,11 @@ export interface PortfolioItem {
 
 export const portfolioItems: PortfolioItem[] = [
   {
+    title: "CS2 Match Result Concept",
+    category: "Social Media Post",
+    image: "https://i.imgur.com/tDriCGV.png"
+  },
+  {
     title: "Social Media Reklama",
     category: "Ads",
     image: "https://i.imgur.com/Je7zOAe.jpeg"
