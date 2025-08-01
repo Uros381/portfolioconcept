@@ -48,18 +48,20 @@ const PortfolioPage: React.FC = () => {
         <Navbar />
         <div className="pt-24 pb-16">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300 mb-8"
+            >
+              <ArrowLeft size={20} />
+              Vrati se na početnu
+            </Link>
+            
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-center mb-16"
             >
-              <Link
-                to="/"
-                className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer"
-                onClick={() => openModal(item)}
-              >
-              </Link>
               <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-6">
                 Svi radovi
               </h1>
