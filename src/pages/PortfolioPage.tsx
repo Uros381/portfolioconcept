@@ -50,7 +50,7 @@ const PortfolioPage: React.FC = () => {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <Link
               to="/"
-              className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300 mb-8"
+              className="inline-flex items-center gap-2 text-blue-500 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors duration-300"
             >
               <ArrowLeft size={20} />
               Vrati se na početnu
