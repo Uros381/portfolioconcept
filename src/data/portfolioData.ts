@@ -20,6 +20,16 @@ export const portfolioItems: PortfolioItem[] = [
     category: "Ads",
     image: "https://i.imgur.com/rcNNFAO.jpeg"
   },
+    {
+    title: "Techstuff Poster",
+    category: "Poster",
+    image: "https://i.imgur.com/r9EewWR.jpeg"
+  },
+    {
+    title: "Instagram Story Ad",
+    category: "Ads",
+    image: "https://i.imgur.com/Lc025Ro.jpeg"
+  },
   {
     title: "GTA5 CONCEPT UI",
     category: "UI",
@@ -29,16 +39,6 @@ export const portfolioItems: PortfolioItem[] = [
     title: "GTA5 CONCEPT UI",
     category: "UI",
     image: "https://i.imgur.com/SZzceBZ.png"
-  },
-  {
-    title: "Instagram Story Ad",
-    category: "Ads",
-    image: "https://i.imgur.com/Lc025Ro.jpeg"
-  },
-    {
-    title: "Techstuff Poster",
-    category: "Poster",
-    image: "https://i.imgur.com/r9EewWR.jpeg"
   },
     {
     title: "Maturska pozivnica",
