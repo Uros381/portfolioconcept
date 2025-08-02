@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 1, delay: 0.4 }}
             className="text-4xl md:text-6xl font-bold mb-8 text-gray-800 dark:text-white"
           >
-            Grafički Dizajner
+            Graphic Designer
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
